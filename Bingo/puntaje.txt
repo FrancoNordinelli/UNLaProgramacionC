@@ -1,0 +1,4 @@
+El puntaje de 3 es: 10
+El puntaje de la PC es: 100
+El puntaje de f es: 140
+El puntaje de la PC es: 170

@@ -1,0 +1,158 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Persona{
+
+    char nombre[30];
+    int dni;
+
+};
+
+struct Persona charAPersona(char c[], int n);
+
+int main()
+{
+    printf("Persistencia de datos!\n");
+
+    //Guardar los datos ----> Bases de datos (2a?o en adelante)
+    //-----------------------> Archivos ( lo vamos a ver)
+    //-----------------------> Archivos binarios (101010010101)
+    //--------- :) ----------> Archivos de Texto  (Nico es el profe)
+
+    //Que cosas haces con un archivo (ESCRIBIRLO ---- LEERLO)
+
+    //Escribir ----- Leer ---------->>> printf -------- scanf/gets
+
+    //Escribir un archivo!!!!!!!!!!!!
+
+    /*
+    //1) Abrir el archivo
+    FILE * puntero;
+
+    puntero = fopen("archivo1.txt", "a");
+
+    //2)Escribir
+    fprintf(puntero, "\nHola como estan\n\nZZZZ--->%d ---->%s", 4444, "Nico");
+
+
+    //3) Cerrar
+    fclose(puntero);
+
+
+
+    //Lectura
+    //1) Abrir el archivo
+    FILE * puntero;
+
+    puntero = fopen("archivo2.txt", "r");
+
+    //2)Leer
+
+    while (!feof(puntero)){
+
+    char aux[40] = " ";
+
+    //No hace falta el fflush
+    fgets(aux, 40 ,puntero); //Busca un \n
+
+    printf("------>>>> %s", aux);
+
+    }
+
+
+    //3) Cerrar
+    fclose(puntero);
+
+    */
+
+
+    //Para guardar TODOS los datos del archivo
+    //tengo que usar un array
+    struct Persona personas[4];
+    int contadorPersonas = 0;
+
+    //Lectura
+    //1) Abrir el archivo
+    FILE * puntero;
+
+    puntero = fopen("archivo3.txt", "r");
+
+    //2)Leer
+
+    while (!feof(puntero)){
+
+    char aux[40] = " ";
+
+    //No hace falta el fflush
+    fgets(aux, 40 ,puntero); //Busca un \n
+
+
+    //Persona <------ aux CHAR
+    personas[contadorPersonas]  = charAPersona(aux, 40);
+
+    contadorPersonas++;
+
+
+
+    }
+
+
+    //3) Cerrar
+    fclose(puntero);
+
+
+    for ( int i = 0; i<4; i++){
+
+        printf("-----> %s ---- %d\n", personas[i].nombre, personas[i].dni );
+
+    }
+
+
+
+
+
+
+    return 0;
+}
+
+
+
+struct Persona charAPersona(char c[], int n){
+
+    struct Persona p;
+
+    int posPuntoYComa = 0;
+
+    //busquedaSecuencial(c, n, ';')
+    for ( int i = 0; i<n; i++ ){
+        if( c[i]== ';'){
+            posPuntoYComa = i;
+        }
+    }
+
+    char auxNombre[40] = " ";
+    char auxDni[40] = " ";
+
+    for ( int i = 0; i<posPuntoYComa; i++){
+
+        auxNombre[i]= c[i];
+        //p.nombre[i] = c[i]; PERFECTO...
+
+    }
+
+     for ( int i = posPuntoYComa+1; i<n ; i++){
+
+        auxDni[i-posPuntoYComa -1]= c[i];
+
+
+    }
+
+    strcpy(p.nombre, auxNombre);
+    p.dni = atoi(auxDni);//int <----char
+    //char --- int itoa
+    //float <----char   atof
+
+
+    return p;
+
+};

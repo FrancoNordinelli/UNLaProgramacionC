@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1613743052 source:c:\users\usuario\desktop\37995141_nordinelli_franco\estudiante.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"materia.h"
+	"estudiante.h"
+
+1613743523 source:c:\users\usuario\desktop\37995141_nordinelli_franco\materia.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"materia.h"
+	"estudiante.h"
+
+1613743523 c:\users\usuario\desktop\37995141_nordinelli_franco\materia.h
+
+1613743062 c:\users\usuario\desktop\37995141_nordinelli_franco\estudiante.h
+
+1613743309 source:c:\users\usuario\desktop\37995141_nordinelli_franco\main.c
+	<stdio.h>
+	<stdlib.h>
+	"materia.h"
+	"estudiante.h"
+
